@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Elite Cuts Barber Studio</title>
+
+  <meta
+    name="description"
+    content="Elite Cuts Barber Studio — professional haircuts, fades, beard grooming and premium barber services."
+  >
+
+  <meta name="theme-color" content="#090909">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #090909;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    .demo-bar {
+      background: #d4af37;
+      color: #000;
+      text-align: center;
+      padding: 9px 15px;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 0.3px;
+      position: relative;
+      z-index: 1001;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(9, 9, 9, 0.96);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      height: 70px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .logo {
+      color: #d4af37;
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #d4af37;
+    }
+
+    .menu-btn {
+      display: none;
+      border: none;
+      background: transparent;
+      color: #d4af37;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(
+          rgba(0,0,0,0.60),
+          rgba(0,0,0,0.78)
+        ),
+        url("https://images.pexels.com/photos/27497935/pexels-photo-27497935.jpeg?cs=srgb&dl=pexels-clark07-27497935.jpg&fm=jpg")
+        center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+      padding: 80px 20px;
+    }
+
+    .hero small {
+      color: #d4af37;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 85px);
+      line-height: 1;
+      max-width: 800px;
+      margin: 18px 0;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: #dddddd;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #d4af37;
+      color: #000;
+      padding: 14px 24px;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: #f0ce58;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid #d4af37;
+    }
+
+    .btn-outline:hover {
+      background: #d4af37;
+      color: #000;
+    }
+
+    section {
+      padding: 90px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title span {
+      color: #d4af37;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      margin-top: 8px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: #111111;
+      border: 1px solid #222222;
+      padding: 30px 22px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: #d4af37;
+    }
+
+    .service-card h3 {
+      color: #d4af37;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 18px;
+    }
+
+    .about {
+      background: #0e0e0e;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-image img {
+      height: 500px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .about-text h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .about-text h2 span {
+      color: #d4af37;
+    }
+
+    .about-text p {
+      color: #cccccc;
+      margin-bottom: 18px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .gallery-grid img {
+      height: 280px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.02);
+    }
+
+    .reviews {
+      background: #0e0e0e;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .review-card {
+      background: #111111;
+      border: 1px solid #222222;
+      padding: 28px;
+      border-radius: 10px;
+    }
+
+    .stars {
+      color: #d4af37;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .review-card p {
+      color: #cccccc;
+      margin-bottom: 20px;
+    }
+
+    .review-card h4 {
+      color: #ffffff;
+    }
+
+    .hours {
+      margin-top: 25px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid #222;
+    }
+
+    .hours-row span:last-child {
+      color: #d4af37;
+    }
+
+    .booking {
+      background: #090909;
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .booking-info h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .booking-info h2 span {
+      color: #d4af37;
+    }
+
+    .booking-info p {
+      color: #cccccc;
+      margin-bottom: 20px;
+    }
+
+    .contact-info {
+      margin-top: 25px;
+    }
+
+    .contact-info div {
+      margin-bottom: 12px;
+    }
+
+    .contact-info strong {
+      color: #d4af37;
+    }
+
+    form {
+      background: #111111;
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid #222222;
+    }
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      color: #dddddd;
+      font-size: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      border-radius: 5px;
+      border: 1px solid #333333;
+      background: #090909;
+      color: #ffffff;
+      outline: none;
+      font-size: 15px;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #d4af37;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    form .btn {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .contact {
+      background: #0e0e0e;
+      text-align: center;
+    }
+
+    .contact-buttons {
+      margin-top: 25px;
+    }
+
+    footer {
+      background: #050505;
+      text-align: center;
+      padding: 35px 20px;
+      border-top: 1px solid #222;
+    }
+
+    footer .logo {
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      color: #888888;
+      font-size: 14px;
+    }
+
+    .socials {
+      margin: 20px 0;
+    }
+
+    .socials a {
+      display: inline-block;
+      border: 1px solid #333;
+      padding: 9px 14px;
+      margin: 4px;
+      border-radius: 5px;
+      color: #ddd;
+      transition: 0.3s;
+    }
+
+    .socials a:hover {
+      border-color: #d4af37;
+      color: #d4af37;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25D366;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      z-index: 999;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    }
+
+    @media (max-width: 1000px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid,
+      .booking-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #090909;
+        border-top: 1px solid rgba(212, 175, 55, 0.2);
+        display: none;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid #222222;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 16px 20px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      section {
+        padding: 70px 18px;
+      }
+
+      .hero-content {
+        padding: 70px 18px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section-title h2,
+      .about-text h2,
+      .booking-info h2 {
+        font-size: 34px;
+      }
+
+      .services-grid,
+      .reviews-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid img {
+        height: 300px;
+      }
+
+      .about-image img {
+        height: 380px;
+      }
+
+      .demo-bar {
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- DEMO NOTICE -->
+  <div class="demo-bar">
+    DEMO WEBSITE — BUSINESS DETAILS ARE SAMPLE INFORMATION
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <nav>
+
+      <a href="#home" class="logo">ELITE CUTS</a>
+
+      <button class="menu-btn" id="menuBtn">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#booking">Book</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <small>Premium Barber Studio</small>
+
+      <h1>
+        Look Sharp.<br>
+        Feel Confident.
+      </h1>
+
+      <p>
+        Professional haircuts, fades and beard grooming
+        designed to keep you looking your best.
+      </p>
+
+      <a href="#booking" class="btn">
+        Book Appointment
+      </a>
+
+      <a href="#services" class="btn btn-outline">
+        View Services
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES -->
+  <section id="services">
+
+    <div class="container">
+
+      <div class="section-title">
+        <span>Our Services</span>
+        <h2>Choose Your Style</h2>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <h3>Classic Haircut</h3>
+          <p>
+            Clean, professional haircut styled to your preference.
+          </p>
+          <div class="price">₦3,000</div>
+        </div>
+
+        <div class="service-card">
+          <h3>Skin Fade</h3>
+          <p>
+            Sharp skin fade with clean finishing and detailing.
+          </p>
+          <div class="price">₦4,000</div>
+        </div>
+
+        <div class="service-card">
+          <h3>Haircut + Beard</h3>
+          <p>
+            Complete haircut and beard grooming package.
+          </p>
+          <div class="price">₦5,000</div>
+        </div>
+
+        <div class="service-card">
+          <h3>Premium Package</h3>
+          <p>
+            Premium haircut, beard treatment and finishing.
+          </p>
+          <div class="price">₦7,000</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <div class="container">
+
+      <div class="about-grid">
+
+        <div class="about-image">
+          <img
+            src="https://images.pexels.com/photos/9992820/pexels-photo-9992820.jpeg?cs=srgb&dl=pexels-instasky-9992820.jpg&fm=jpg"
+            alt="Barber giving a haircut"
+          >
+        </div>
+
+        <div class="about-text">
+
+          <h2>
+            More Than Just A <span>Haircut</span>
+          </h2>
+
+          <p>
+            At Elite Cuts, we believe every customer deserves
+            to leave the chair looking sharp and feeling confident.
+          </p>
+
+          <p>
+            Our professional barbers focus on precision,
+            clean finishing and attention to detail.
+          </p>
+
+          <a href="#booking" class="btn">
+            Book Your Cut
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- GALLERY -->
+  <section id="gallery">
+
+    <div class="container">
+
+      <div class="section-title">
+        <span>Our Work</span>
+        <h2>Gallery</h2>
+      </div>
+
+      <div class="gallery-grid">
+
+        <img
+          src="https://images.pexels.com/photos/32329616/pexels-photo-32329616.jpeg?cs=srgb&dl=pexels-bulat843-1243575272-32329616.jpg&fm=jpg"
+          alt="Professional barber haircut"
+        >
+
+        <img
+          src="https://images.pexels.com/photos/4625627/pexels-photo-4625627.jpeg?cs=srgb&dl=pexels-shkrabaanthony-4625627.jpg&fm=jpg"
+          alt="Barber cutting hair"
+        >
+
+        <img
+          src="https://images.pexels.com/photos/9992820/pexels-photo-9992820.jpeg?cs=srgb&dl=pexels-instasky-9992820.jpg&fm=jpg"
+          alt="Haircut in barber shop"
+        >
+
+        <img
+          src="https://images.pexels.com/photos/27497935/pexels-photo-27497935.jpeg?cs=srgb&dl=pexels-clark07-27497935.jpg&fm=jpg"
+          alt="Modern barber shop"
+        >
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- REVIEWS -->
+  <section class="reviews">
+
+    <div class="container">
+
+      <div class="section-title">
+        <span>Customer Reviews</span>
+        <h2>What Customers Say</h2>
+      </div>
+
+      <div class="reviews-grid">
+
+        <div class="review-card">
+
+          <div class="stars">★★★★★</div>
+
+          <p>
+            "Great haircut and very clean finishing.
+            I'll definitely come back."
+          </p>
+
+          <h4>Daniel</h4>
+
+        </div>
+
+
+        <div class="review-card">
+
+          <div class="stars">★★★★★</div>
+
+          <p>
+            "The barber really understands modern styles.
+            Excellent service."
+          </p>
+
+          <h4>Michael</h4>
+
+        </div>
+
+
+        <div class="review-card">
+
+          <div class="stars">★★★★★</div>
+
+          <p>
+            "Professional service and a very nice atmosphere.
+            Highly recommended."
+          </p>
+
+          <h4>Samuel</h4>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- OPENING HOURS -->
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+        <span>Visit Us</span>
+        <h2>Opening Hours</h2>
+      </div>
+
+      <div class="hours">
+
+        <div class="hours-row">
+          <span>Monday – Thursday</span>
+          <span>8:00 AM – 8:00 PM</span>
+        </div>
+
+        <div class="hours-row">
+          <span>Friday – Saturday</span>
+          <span>8:00 AM – 9:00 PM</span>
+        </div>
+
+        <div class="hours-row">
+          <span>Sunday</span>
+          <span>10:00 AM – 6:00 PM</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BOOKING -->
+  <section class="booking" id="booking">
+
+    <div class="container">
+
+      <div class="booking-grid">
+
+        <div class="booking-info">
+
+          <h2>
+            Book Your <span>Appointment</span>
+          </h2>
+
+          <p>
+            Choose your preferred service, date and time.
+            Your booking request will be sent directly to WhatsApp.
+          </p>
+
+          <div class="contact-info">
+
+            <div>
+              <strong>Phone:</strong>
+              <a href="tel:+2347070362701">
+                +234 707 036 2701
+              </a>
+            </div>
+
+            <div>
+              <strong>WhatsApp:</strong>
+              <a
+                href="https://wa.me/2347070362701"
+                target="_blank"
+              >
+                07070362701
+              </a>
+            </div>
+
+            <div>
+              <strong>Location:</strong>
+              Abuja, Nigeria
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <form id="bookingForm">
+
+          <div class="form-group">
+
+            <label for="name">
+              Full Name
+            </label>
+
+            <input
+              type="text"
+              id="name"
+              placeholder="Enter your name"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="phone">
+              Phone Number
+            </label>
+
+            <input
+              type="tel"
+              id="phone"
+              placeholder="Enter your phone number"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="service">
+              Select Service
+            </label>
+
+            <select id="service" required>
+
+              <option value="">
+                Choose a service
+              </option>
+
+              <option value="Classic Haircut - ₦3,000">
+                Classic Haircut - ₦3,000
+              </option>
+
+              <option value="Skin Fade - ₦4,000">
+                Skin Fade - ₦4,000
+              </option>
+
+              <option value="Haircut + Beard - ₦5,000">
+                Haircut + Beard - ₦5,000
+              </option>
+
+              <option value="Premium Package - ₦7,000">
+                Premium Package - ₦7,000
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="date">
+              Preferred Date
+            </label>
+
+            <input
+              type="date"
+              id="date"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="time">
+              Preferred Time
+            </label>
+
+            <input
+              type="time"
+              id="time"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="message">
+              Additional Message
+            </label>
+
+            <textarea
+              id="message"
+              placeholder="Anything else you'd like us to know?"
+            ></textarea>
+
+          </div>
+
+
+          <button type="submit" class="btn">
+            Book Through WhatsApp
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>Get In Touch</span>
+
+        <h2>Contact Elite Cuts</h2>
+
+      </div>
+
+      <p>
+        Ready for a fresh look? Contact us today.
+      </p>
+
+      <div class="contact-buttons">
+
+        <a
+          href="tel:+2347070362701"
+          class="btn"
+        >
+          📞 Call Now
+        </a>
+
+        <a
+          href="https://wa.me/2347070362701"
+          target="_blank"
+          class="btn"
+        >
+          💬 WhatsApp
+        </a>
+
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Abuja+Nigeria"
+          target="_blank"
+          class="btn btn-outline"
+        >
+          📍 Find Us
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <a href="#home" class="logo">
+      ELITE CUTS
+    </a>
+
+    <div class="socials">
+
+      <a
+        href="#"
+        onclick="alert('Instagram profile will be added when the real business account is available.'); return false;"
+      >
+        Instagram
+      </a>
+
+      <a
+        href="#"
+        onclick="alert('Facebook profile will be added when the real business account is available.'); return false;"
+      >
+        Facebook
+      </a>
+
+      <a
+        href="https://wa.me/2347070362701"
+        target="_blank"
+      >
+        WhatsApp
+      </a>
+
+    </div>
+
+    <p>
+      © 2026 Elite Cuts Barber Studio. All rights reserved.
+    </p>
+
+    <p style="margin-top:8px;">
+      Demo website created for presentation purposes.
+    </p>
+
+  </footer>
+
+
+  <!-- FLOATING WHATSAPP -->
+  <a
+    href="https://wa.me/2347070362701"
+    target="_blank"
+    class="floating-whatsapp"
+    aria-label="Chat on WhatsApp"
+  >
+    💬
+  </a>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    /* MOBILE MENU */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function() {
+
+      navLinks.classList.toggle("active");
+
+      if (navLinks.classList.contains("active")) {
+        menuBtn.innerHTML = "✕";
+      } else {
+        menuBtn.innerHTML = "☰";
+      }
+
+    });
+
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+          navLinks.classList.remove("active");
+
+          menuBtn.innerHTML = "☰";
+
+        });
+
+      });
+
+
+    /* WHATSAPP BOOKING */
+
+    document
+      .getElementById("bookingForm")
+      .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const name =
+          document.getElementById("name").value;
+
+        const phone =
+          document.getElementById("phone").value;
+
+        const service =
+          document.getElementById("service").value;
+
+        const date =
+          document.getElementById("date").value;
+
+        const time =
+          document.getElementById("time").value;
+
+        const message =
+          document.getElementById("message").value;
+
+
+        /* REAL DEMO WHATSAPP NUMBER */
+
+        const whatsappNumber =
+          "2347070362701";
+
+
+        const text =
+`Hello Elite Cuts! 👋
+
+I would like to book an appointment.
+
+Name: ${name}
+Phone: ${phone}
+Service: ${service}
+Date: ${date}
+Time: ${time}
+
+Additional message:
+${message || "None"}
+
+Thank you.`;
+
+
+        const url =
+          "https://wa.me/" +
+          whatsappNumber +
+          "?text=" +
+          encodeURIComponent(text);
+
+
+        window.open(url, "_blank");
+
+      });
+
+  </script>
+
+</body>
+</html>
